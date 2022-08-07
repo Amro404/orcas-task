@@ -51,6 +51,6 @@ class UserV2Sync extends Command
             }
 
         }
-
+        Log::info("Syncing Users from API v2.0.0: Finished.");
     }
 }

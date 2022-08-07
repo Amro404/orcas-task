@@ -6,7 +6,6 @@ namespace Connections\UserV1\Resources;
 
 use Connections\UserV1\Actions\UserFactory;
 use Connections\UserV1\UserService;
-use Illuminate\Support\Collection;
 
 
 class UserResource
@@ -19,12 +18,16 @@ class UserResource
     }
 
 
-    public function list(): Collection
+    public function list()
     {
         $response =  $this->userService->get(
             $this->userService->withBaseUrl(),
             "api/v1/users/users_1"
         );
+
+        if($response->failed()) {
+            return $response->toException();
+        }
 
         $collection = collect();
 

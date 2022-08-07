@@ -49,6 +49,7 @@ class UserV1Sync extends Command
             }
 
         }
+        Log::info("Syncing Users from API v1.0.0: Finished.");
 
     }
 
